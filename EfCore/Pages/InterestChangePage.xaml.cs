@@ -1,45 +1,42 @@
 ﻿using EfCore.data;
 using EfCore.Service;
-
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace EfCore.Pages
 {
-    /// <summary>
-    /// Логика взаимодействия для InterestChangePage.xaml
-    /// </summary>
     public partial class InterestChangePage : Page
     {
         private InterestService _service = new InterestService();
         public InterestGroup CurrentInterestGroup { get; set; }
         public bool IsEdit { get; set; } = false;
+
         public InterestChangePage(InterestGroup? editGroup = null)
         {
             InitializeComponent();
+
             if (editGroup != null)
             {
-                CurrentInterestGroup = editGroup;
+                CurrentInterestGroup = new InterestGroup
+                {
+                    Id = editGroup.Id,
+                    Title = editGroup.Title,
+                    Description = editGroup.Description
+                };
                 IsEdit = true;
             }
+            else
+            {
+                CurrentInterestGroup = new InterestGroup();
+            }
+
             DataContext = this;
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-
             if (Validation.GetHasError(NameTextBox) ||
                 Validation.GetHasError(DescTextBox))
             {
@@ -50,9 +47,21 @@ namespace EfCore.Pages
 
             if (!IsEdit)
             {
-                if (_service.InterestGroups.Any(u => u.Title.ToLower() == CurrentInterestGroup.Title.ToLower()))
+                if (_service.InterestGroups.Any(g =>
+                    g.Title.ToLower() == CurrentInterestGroup.Title.Trim().ToLower()))
                 {
-                    MessageBox.Show("Пользователь с таким логином уже существует", "Ошибка",
+                    MessageBox.Show("Группа с таким названием уже существует", "Ошибка",
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+            }
+            else
+            {
+                if (_service.InterestGroups.Any(g =>
+                    g.Id != CurrentInterestGroup.Id &&
+                    g.Title.ToLower() == CurrentInterestGroup.Title.Trim().ToLower()))
+                {
+                    MessageBox.Show("Группа с таким названием уже существует", "Ошибка",
                         MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
@@ -63,16 +72,13 @@ namespace EfCore.Pages
                 if (IsEdit)
                 {
                     _service.Update(CurrentInterestGroup);
-                    MessageBox.Show("Данные пользователя обновлены", "Успешно",
+                    MessageBox.Show("Данные группы обновлены", "Успешно",
                         MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
-                    if (CurrentInterestGroup.Id <= 0)
-                        CurrentInterestGroup.Id = 1;
-
                     _service.Add(CurrentInterestGroup);
-                    MessageBox.Show("Пользователь добавлен", "Успешно",
+                    MessageBox.Show("Группа добавлена", "Успешно",
                         MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 

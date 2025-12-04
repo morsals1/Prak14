@@ -4,50 +4,100 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EfCore.Pages"
-      xmlns:services="clr-namespace:EfCore.Service"
       mc:Ignorable="d" 
       Title="Список ролей">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal">
-            <Button Click="BackButton_Click" Content="Назад" Style="{StaticResource PrimaryButton}"/>
-            <TextBlock Text="Список ролей" VerticalAlignment="Center" 
-                      FontSize="16" FontWeight="Bold"/>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="Список ролей" Style="{StaticResource PageTitle}"/>
+            <Button Click="BackButton_Click" Content="Назад" 
+                    Style="{StaticResource SecondaryButton}"/>
         </StackPanel>
+        
+        <Border Grid.Row="1" Grid.Column="0" BorderBrush="#E0E0E0" BorderThickness="0,1,1,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-        <ListView Grid.Row="1" 
-                  ItemsSource="{Binding Roles}"
-                  SelectedItem="{Binding SelectedRole}"
-                  Margin="10">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border BorderBrush="#DDD" BorderThickness="0,0,0,1" Padding="10">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="Auto"/>
-                            </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Text="Роли" 
+                           Style="{StaticResource PageTitle}"
+                           FontSize="16" Margin="10"/>
 
-                            <StackPanel Grid.Column="0">
-                                <TextBlock Text="{Binding Title}" FontWeight="Bold" FontSize="14"/>
-                                <TextBlock Text="{Binding Users.Count, StringFormat='Пользователей: {0}'}" 
-                                          Foreground="#666"/>
-                            </StackPanel>
+                <ListView Grid.Row="1" 
+                          ItemsSource="{Binding Roles}"
+                          SelectedItem="{Binding SelectedRole, Mode=TwoWay}"
+                          SelectionChanged="ListView_SelectionChanged"
+                          Style="{StaticResource UserListStyle}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource UserListItem}">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Title}" Style="{StaticResource UserLoginText}"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Пользователей: " Style="{StaticResource UserInfoText}"/>
+                                        <TextBlock Text="{Binding Users.Count}" Style="{StaticResource UserInfoText}"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Border>
+        
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="#E0E0E0" BorderThickness="0,1,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-                            <Button Grid.Column="1" 
-                                    Content="Показать пользователей"
-                                    Click="ShowUsersForRole"
-                                    Tag="{Binding}"
-                                    Margin="10,0,0,0"/>
-                        </Grid>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                <TextBlock Grid.Row="0" x:Name="UsersTitle" Text="Пользователи роли" 
+                           Style="{StaticResource PageTitle}"
+                           FontSize="16" Margin="10"/>
+
+                <Border Grid.Row="1" 
+                        Background="#F5F5F5"
+                        Margin="10"
+                        Padding="10">
+                    <TextBlock x:Name="SelectedRoleInfo" Text="Выберите роль слева"/>
+                </Border>
+
+                <ListView Grid.Row="2" 
+                          x:Name="RoleUsersListView"
+                          ItemsSource="{Binding RoleUsers}"
+                          Style="{StaticResource UserListStyle}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource UserListItem}">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Login}" Style="{StaticResource UserLoginText}"/>
+                                    <TextBlock Text="{Binding Name}" Style="{StaticResource UserInfoText}"/>
+                                    <TextBlock Text="{Binding Email}" Style="{StaticResource UserInfoText}"/>
+                                    <TextBlock Text="{Binding CreatedAt, StringFormat='Создан: {0}'}" 
+                                              Style="{StaticResource CreatedAtText}"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                
+                <TextBlock Grid.Row="2" x:Name="NoUsersText"  Text="У роли нет пользователей" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

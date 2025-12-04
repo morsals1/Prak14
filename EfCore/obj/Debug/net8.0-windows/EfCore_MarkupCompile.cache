@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\st310-12\Documents\MenshikovAll\prak13\EfCore\obj\Debug\net8.0-windows\
+C:\Users\mensh\Desktop\prak14\EfCore\obj\Debug\net8.0-windows\
 EfCore
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\st310-12\Documents\MenshikovAll\prak13\EfCore\App.xaml
+C:\Users\mensh\Desktop\prak14\EfCore\App.xaml
 9-844159287
-22-328471013
-341044352742
-2311801464686
+222065332064
+351506367627
+2311453350188
 MainWindow.xaml;Pages\InterestChangePage.xaml;Pages\InterestPage.xaml;Pages\MainPage.xaml;Pages\RoleListPage.xaml;Pages\UserChangePage.xaml;Pages\UserInterestAddPage.xaml;Styles\Basic.xaml;Styles\Buttons.xaml;
 
 False

@@ -9,12 +9,18 @@
       Title="MainPage">
 
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center" >
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" 
+                    Orientation="Horizontal" VerticalAlignment="Center" >
             <TextBlock Text="Список пользователей" Style="{StaticResource PageTitle}"/>
             <Button Click="AddButton_Click" Content="Добавить" 
                     Style="{StaticResource PrimaryButton}"/>
@@ -27,29 +33,122 @@
             <Button Click="AddToGroupButton_Click" Content="Записаться в группу" 
                     Style="{StaticResource SecondaryButton}"/>
         </StackPanel>
-        
-        <ListView Grid.Row="1" 
-                  ItemsSource="{Binding Service.Users}"
-                  MouseDoubleClick="EditUser_Click"
-                  SelectedItem="{Binding SelectedUser}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border Style="{StaticResource UserListItem}">
-                        <StackPanel>
-                            <TextBlock Text="{Binding Login}" FontWeight="Bold" FontSize="14"/>
-                            <TextBlock Text="{Binding Name}" Foreground="#666"/>
-                            <TextBlock Text="{Binding Email}" Foreground="#666"/>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="Роль: " Foreground="#999"/>
-                                <TextBlock Text="{Binding Role.Title, FallbackValue='Пользователь'}" 
-                                          FontWeight="SemiBold"/>
-                            </StackPanel>
-                            <TextBlock Text="{Binding CreatedAt, StringFormat='Создан: {0}'}" 
-                                      Foreground="#999" FontSize="11"/>
-                        </StackPanel>
-                    </Border>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+
+        <Border Grid.Row="1" Grid.Column="0" BorderBrush="#E0E0E0" BorderThickness="0,1,1,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="Пользователи" 
+                           Style="{StaticResource PageTitle}"
+                           FontSize="16" Margin="10,10,10,5"/>
+
+                <ListView Grid.Row="1" 
+                          ItemsSource="{Binding Service.Users}"
+                          MouseDoubleClick="EditUser_Click"
+                          SelectedItem="{Binding SelectedUser, Mode=TwoWay}"
+                          SelectionChanged="ListView_SelectionChanged"
+                          Style="{StaticResource UserListStyle}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource UserListItem}">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Login}" FontWeight="Bold" FontSize="14"/>
+                                    <TextBlock Text="{Binding Name}" Foreground="#666"/>
+                                    <TextBlock Text="{Binding Email}" Foreground="#666"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Роль: " Foreground="#999"/>
+                                        <TextBlock Text="{Binding Role.Title, FallbackValue='Пользователь'}" 
+                                                  FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                    <TextBlock Text="{Binding CreatedAt, StringFormat='Создан: {0}'}" 
+                                              Foreground="#999" FontSize="11"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="#E0E0E0" BorderThickness="0,1,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" x:Name="GroupsTitle" Text="Группы пользователя" 
+                           Style="{StaticResource PageTitle}"
+                           FontSize="16" Margin="10,10,10,5"/>
+
+                <Border Grid.Row="1" 
+                        Background="#F5F5F5"
+                        Margin="10,0,10,10"
+                        Padding="10"
+                        CornerRadius="4">
+                    <StackPanel>
+                        <TextBlock x:Name="SelectedUserInfo" Text="Выберите пользователя слева" 
+                                   Foreground="#666"
+                                   FontStyle="Italic"/>
+                    </StackPanel>
+                </Border>
+
+                <ListView Grid.Row="2" 
+                          x:Name="UserGroupsListView"
+                          ItemsSource="{Binding UserGroups}"
+                          Style="{StaticResource UserListStyle}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Style="{StaticResource UserListItem}">
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Группа: " Foreground="#666"/>
+                                        <TextBlock Text="{Binding InterestGroup.Title}" 
+                                                  FontWeight="Bold"
+                                                  Foreground="#1976D2"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Дата вступления: " Foreground="#666"/>
+                                        <TextBlock Text="{Binding JoinedAt}" Foreground="#666"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Статус: " Foreground="#666"/>
+                                        <TextBlock x:Name="StatusText">
+                                            <TextBlock.Style>
+                                                <Style TargetType="TextBlock">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsModerator}" Value="True">
+                                                            <Setter Property="Text" Value="Модератор"/>
+                                                            <Setter Property="Foreground" Value="Green"/>
+                                                            <Setter Property="FontWeight" Value="Bold"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding IsModerator}" Value="False">
+                                                            <Setter Property="Text" Value="Участник"/>
+                                                            <Setter Property="Foreground" Value="Black"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </TextBlock.Style>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                </ListView>
+                
+                <TextBlock Grid.Row="2" x:Name="NoGroupsText" Text="Пользователь не состоит в группах" 
+                           Foreground="#999" FontStyle="Italic" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed"/>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

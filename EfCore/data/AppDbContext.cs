@@ -19,8 +19,8 @@ namespace EfCore.data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=sql.ects;Database=MenshDBfin;User Id=student_12;Password=student_12;TrustServerCertificate=True;");
-            //optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=HomeDB;Trusted_Connection=True;TrustServerCertificate=True;");
+            //optionsBuilder.UseSqlServer("Server=sql.ects;Database=MenshDBfin;User Id=student_12;Password=student_12;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=HomeDB;Trusted_Connection=True;TrustServerCertificate=True;");
             optionsBuilder.ConfigureWarnings(warnings =>
                   warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
         }

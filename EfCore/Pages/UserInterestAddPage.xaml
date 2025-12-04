@@ -4,10 +4,72 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:EfCore.Pages"
+      xmlns:validators="clr-namespace:EfCore.Validators"
       mc:Ignorable="d" 
-      Title="UserInterestAddPage">
+      Title="Запись в группу интересов">
 
-    <Grid>
-        
+    <Grid Margin="20">
+        <StackPanel>
+            <TextBlock Text="Добавление пользователя в группу" 
+                       Style="{StaticResource PageTitle}"/>
+
+            <StackPanel Style="{StaticResource FormGroup}">
+                <Label Content="Пользователь *" Style="{StaticResource FormLabel}"/>
+                <ComboBox x:Name="UserComboBox" 
+                          DisplayMemberPath="Login"
+                          SelectedValuePath="Id"
+                          Style="{StaticResource ValidatableComboBox}">
+                    <ComboBox.SelectedValue>
+                        <Binding Path="SelectedUserId" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validators:RequiredRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </ComboBox.SelectedValue>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource FormGroup}">
+                <Label Content="Группа интересов *" Style="{StaticResource FormLabel}"/>
+                <ComboBox x:Name="GroupComboBox" 
+                          DisplayMemberPath="Title"
+                          SelectedValuePath="Id"
+                          Style="{StaticResource ValidatableComboBox}">
+                    <ComboBox.SelectedValue>
+                        <Binding Path="SelectedGroupId" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validators:RequiredRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </ComboBox.SelectedValue>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource FormGroup}">
+                <Label Content="Дата вступления *" Style="{StaticResource FormLabel}"/>
+                <TextBox x:Name="JoinedAtTextBox" 
+                         Style="{StaticResource ValidatableTextBox}">
+                    <TextBox.Text>
+                        <Binding Path="JoinedAt" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <validators:RequiredRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource FormGroup}">
+                <CheckBox x:Name="IsModeratorCheckBox" 
+                          Content="Является модератором"
+                          IsChecked="{Binding IsModerator}"
+                          Margin="10"/>
+            </StackPanel>
+
+            <StackPanel Style="{StaticResource ActionPanel}" HorizontalAlignment="Right">
+                <Button Click="AddButton_Click" Content="Добавить" Style="{StaticResource PrimaryButton}"/>
+                <Button Click="BackButton_Click" Content="Назад" Style="{StaticResource SecondaryButton}"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

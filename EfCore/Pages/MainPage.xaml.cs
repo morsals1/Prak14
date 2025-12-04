@@ -1,6 +1,8 @@
-﻿using EfCore.Service;
-using EfCore.data;
+﻿using EfCore.data;
+using EfCore.Service;
 using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -9,7 +11,10 @@ namespace EfCore.Pages
     public partial class MainPage : Page
     {
         public UserService Service { get; set; } = new UserService();
+        public UserInterestGroupService UserInterestGroupService { get; set; } = new UserInterestGroupService();
+
         public User? SelectedUser { get; set; }
+        public ObservableCollection<UserInterestGroup> UserGroups { get; set; } = new();
 
         public MainPage()
         {
@@ -21,6 +26,54 @@ namespace EfCore.Pages
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             Service.GetAll();
+            UserInterestGroupService.GetAll();
+            UpdateGroupsView();
+        }
+
+        private void UpdateGroupsView()
+        {
+            if (SelectedUser == null)
+            {
+                GroupsTitle.Text = "Группы пользователя";
+                SelectedUserInfo.Text = "Выберите пользователя слева";
+                UserGroups.Clear();
+                NoGroupsText.Visibility = Visibility.Visible;
+                UserGroupsListView.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                GroupsTitle.Text = $"Группы пользователя: {SelectedUser.Login}";
+                SelectedUserInfo.Text = $"{SelectedUser.Name} ({SelectedUser.Email}) - {SelectedUser.Role?.Title ?? "Пользователь"}";
+
+                // Фильтруем группы по выбранному пользователю
+                var userGroups = UserInterestGroupService.UserInterestGroups
+                    .Where(uig => uig.UserId == SelectedUser.Id)
+                    .OrderBy(uig => uig.InterestGroup.Title)
+                    .ToList();
+
+                UserGroups.Clear();
+                foreach (var group in userGroups)
+                {
+                    UserGroups.Add(group);
+                }
+
+                // Показываем/скрываем список групп
+                if (UserGroups.Count > 0)
+                {
+                    NoGroupsText.Visibility = Visibility.Collapsed;
+                    UserGroupsListView.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    NoGroupsText.Visibility = Visibility.Visible;
+                    UserGroupsListView.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UpdateGroupsView();
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -45,6 +98,10 @@ namespace EfCore.Pages
                     Service.Remove(SelectedUser);
                     MessageBox.Show("Пользователь удален", "Успешно",
                         MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    // Сбрасываем выбор
+                    SelectedUser = null;
+                    UpdateGroupsView();
                 }
                 catch (Exception ex)
                 {
@@ -74,7 +131,7 @@ namespace EfCore.Pages
 
         private void AddToGroupButton_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new UserInterestAddPage());
         }
     }
 }
