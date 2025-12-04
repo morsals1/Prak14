@@ -1,0 +1,144 @@
+﻿<Page x:Class="EfCore.Pages.UserChangePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EfCore.Pages"
+      xmlns:validators="clr-namespace:EfCore.Validators"
+      mc:Ignorable="d" 
+      Title="UserChangePage">
+
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="20">
+                <StackPanel Style="{StaticResource FormGroup}">
+                    <Label Content="Логин *" Style="{StaticResource FormLabel}"/>
+                    <TextBox x:Name="LoginTextBox" 
+                            Style="{StaticResource ValidatableTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="CurrentUser.Login" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <validators:RequiredRule/>
+                                    <validators:MinLengthRule MinLength="5"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel Style="{StaticResource FormGroup}">
+                    <Label Content="Имя *" Style="{StaticResource FormLabel}"/>
+                    <TextBox x:Name="NameTextBox" Style="{StaticResource ValidatableTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="CurrentUser.Name" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <validators:RequiredRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel Style="{StaticResource FormGroup}">
+                    <Label Content="Email *" Style="{StaticResource FormLabel}"/>
+                    <TextBox x:Name="EmailTextBox" Style="{StaticResource ValidatableTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="CurrentUser.Email" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <validators:RequiredRule/>
+                                    <validators:EmailRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel Style="{StaticResource FormGroup}">
+                    <Label Content="Пароль *" Style="{StaticResource FormLabel}"/>
+                    <PasswordBox x:Name="PasswordBox" 
+                    Style="{StaticResource ValidatablePasswordBox}"
+                    PasswordChanged="PasswordBox_PasswordChanged"/>
+                    <TextBlock x:Name="PasswordErrorText" Style="{StaticResource ValidationErrorText}"/>
+                </StackPanel>
+
+                <StackPanel Style="{StaticResource FormGroup}">
+                    <Label Content="Дата создания *" Style="{StaticResource FormLabel}"/>
+                    <TextBox x:Name="DateTextBox" Style="{StaticResource ValidatableTextBox}">
+                        <TextBox.Text>
+                            <Binding Path="CurrentUser.CreatedAt" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <validators:RequiredRule/>
+                                    <validators:DateRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel Style="{StaticResource FormGroup}">
+                    <Label Content="Роль *" Style="{StaticResource FormLabel}"/>
+                    <ComboBox x:Name="RoleComboBox"
+                              ItemsSource="{Binding Roles}"
+                              DisplayMemberPath="Title"
+                              SelectedValuePath="Id"
+                              SelectedValue="{Binding CurrentUser.RoleId, Mode=TwoWay}"
+                              Style="{StaticResource ValidatableComboBox}">
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Style="{StaticResource FormGroup}" Margin="0,20,0,0">
+                    <Label Content="Профиль пользователя (необязательно)" Style="{StaticResource FormLabel}"/>
+                    <StackPanel Style="{StaticResource FormGroup}">
+                        <Label Content="Аватар URL" Style="{StaticResource FormLabel}"/>
+                        <TextBox x:Name="AvatarTextBox" 
+                                Style="{StaticResource ValidatableTextBox}"
+                                Text="{Binding CurrentUser.Profile.AvatarUrl, Mode=TwoWay}"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource FormGroup}">
+                        <Label Content="Телефон" Style="{StaticResource FormLabel}"/>
+                        <TextBox x:Name="PhoneTextBox" 
+                                Style="{StaticResource ValidatableTextBox}"
+                                Text="{Binding CurrentUser.Profile.Phone, Mode=TwoWay}"/>
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource FormGroup}">
+                        <Label Content="Дата рождения" Style="{StaticResource FormLabel}"/>
+                        <TextBox x:Name="BirthdayTextBox" 
+                                Style="{StaticResource ValidatableTextBox}">
+                            <TextBox.Text>
+                                <Binding Path="CurrentUser.Profile.Birthday" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged">
+                                    <Binding.ValidationRules>
+                                        <validators:DateRule/>
+                                    </Binding.ValidationRules>
+                                </Binding>
+                            </TextBox.Text>
+                        </TextBox>
+                    </StackPanel>
+
+                    <StackPanel Style="{StaticResource FormGroup}">
+                        <Label Content="О себе" Style="{StaticResource FormLabel}"/>
+                        <TextBox x:Name="BioTextBox" 
+                                Style="{StaticResource ValidatableTextBox}"
+                                AcceptsReturn="True"
+                                Height="80"
+                                TextWrapping="Wrap"
+                                VerticalScrollBarVisibility="Auto"
+                                Text="{Binding CurrentUser.Profile.Bio, Mode=TwoWay}"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Style="{StaticResource ActionPanel}" 
+                          HorizontalAlignment="Right"
+                          Margin="0,20,0,0">
+                    <Button Click="SaveButton_Click" 
+                            Content="Сохранить" 
+                            Style="{StaticResource PrimaryButton}"/>
+                    <Button Click="BackButton_Click" 
+                            Content="Назад" 
+                            Style="{StaticResource SecondaryButton}"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

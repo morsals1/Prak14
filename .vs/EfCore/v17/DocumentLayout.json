@@ -1,0 +1,189 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|c:\\users\\st310-12\\documents\\menshikovall\\prak13\\efcore\\pages\\interestchangepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|solutionrelative:efcore\\pages\\interestchangepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|c:\\users\\st310-12\\documents\\menshikovall\\prak13\\efcore\\pages\\userchangepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|solutionrelative:efcore\\pages\\userchangepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|c:\\users\\st310-12\\documents\\menshikovall\\prak13\\efcore\\pages\\interestchangepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|solutionrelative:efcore\\pages\\interestchangepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|c:\\users\\st310-12\\documents\\menshikovall\\prak13\\efcore\\service\\interestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|solutionrelative:efcore\\service\\interestservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|c:\\users\\st310-12\\documents\\menshikovall\\prak13\\efcore\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|solutionrelative:efcore\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|c:\\users\\st310-12\\documents\\menshikovall\\prak13\\efcore\\pages\\userchangepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|solutionrelative:efcore\\pages\\userchangepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|c:\\users\\st310-12\\documents\\menshikovall\\prak13\\efcore\\pages\\userinterestaddpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|solutionrelative:efcore\\pages\\userinterestaddpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|c:\\users\\st310-12\\documents\\menshikovall\\prak13\\efcore\\pages\\interestpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|solutionrelative:efcore\\pages\\interestpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|c:\\users\\st310-12\\documents\\menshikovall\\prak13\\efcore\\styles\\basic.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|solutionrelative:efcore\\styles\\basic.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|c:\\users\\st310-12\\documents\\menshikovall\\prak13\\efcore\\pages\\interestpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D258ADF5-0F70-4902-8B71-922E445CD7DC}|EfCore\\EfCore.csproj|solutionrelative:efcore\\pages\\interestpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserInterestAddPage.xaml",
+              "DocumentMoniker": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\UserInterestAddPage.xaml",
+              "RelativeDocumentMoniker": "EfCore\\Pages\\UserInterestAddPage.xaml",
+              "ToolTip": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\UserInterestAddPage.xaml",
+              "RelativeToolTip": "EfCore\\Pages\\UserInterestAddPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-04T06:26:26.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserChangePage.xaml",
+              "DocumentMoniker": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\UserChangePage.xaml",
+              "RelativeDocumentMoniker": "EfCore\\Pages\\UserChangePage.xaml",
+              "ToolTip": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\UserChangePage.xaml",
+              "RelativeToolTip": "EfCore\\Pages\\UserChangePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-04T06:00:41.73Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserChangePage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\UserChangePage.xaml.cs",
+              "RelativeDocumentMoniker": "EfCore\\Pages\\UserChangePage.xaml.cs",
+              "ToolTip": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\UserChangePage.xaml.cs",
+              "RelativeToolTip": "EfCore\\Pages\\UserChangePage.xaml.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABEAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T06:04:22.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InterestChangePage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\InterestChangePage.xaml.cs",
+              "RelativeDocumentMoniker": "EfCore\\Pages\\InterestChangePage.xaml.cs",
+              "ToolTip": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\InterestChangePage.xaml.cs",
+              "RelativeToolTip": "EfCore\\Pages\\InterestChangePage.xaml.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAgwD0AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T06:03:51.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InterestChangePage.xaml",
+              "DocumentMoniker": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\InterestChangePage.xaml",
+              "RelativeDocumentMoniker": "EfCore\\Pages\\InterestChangePage.xaml",
+              "ToolTip": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\InterestChangePage.xaml",
+              "RelativeToolTip": "EfCore\\Pages\\InterestChangePage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-04T05:58:50.455Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "InterestPage.xaml",
+              "DocumentMoniker": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\InterestPage.xaml",
+              "RelativeDocumentMoniker": "EfCore\\Pages\\InterestPage.xaml",
+              "ToolTip": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\InterestPage.xaml",
+              "RelativeToolTip": "EfCore\\Pages\\InterestPage.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-04T04:52:59.633Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "InterestPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\InterestPage.xaml.cs",
+              "RelativeDocumentMoniker": "EfCore\\Pages\\InterestPage.xaml.cs",
+              "ToolTip": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Pages\\InterestPage.xaml.cs",
+              "RelativeToolTip": "EfCore\\Pages\\InterestPage.xaml.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAIwD0AAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T05:01:48.136Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Basic.xaml",
+              "DocumentMoniker": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Styles\\Basic.xaml",
+              "RelativeDocumentMoniker": "EfCore\\Styles\\Basic.xaml",
+              "ToolTip": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Styles\\Basic.xaml",
+              "RelativeToolTip": "EfCore\\Styles\\Basic.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-04T04:58:54.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Service\\UserService.cs",
+              "RelativeDocumentMoniker": "EfCore\\Service\\UserService.cs",
+              "ToolTip": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Service\\UserService.cs",
+              "RelativeToolTip": "EfCore\\Service\\UserService.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAgwD8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T05:26:16.931Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InterestService.cs",
+              "DocumentMoniker": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Service\\InterestService.cs",
+              "RelativeDocumentMoniker": "EfCore\\Service\\InterestService.cs",
+              "ToolTip": "C:\\Users\\st310-12\\Documents\\MenshikovAll\\prak13\\EfCore\\Service\\InterestService.cs",
+              "RelativeToolTip": "EfCore\\Service\\InterestService.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAkwDQAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-04T04:39:47.413Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

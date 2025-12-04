@@ -1,0 +1,48 @@
+﻿<Page x:Class="EfCore.Pages.InterestPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:EfCore.Pages"
+      xmlns:services="clr-namespace:EfCore.Service"
+      mc:Ignorable="d" 
+      Title="InterestPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="Список групп" Style="{StaticResource PageTitle}"/>
+            <Button Click="AddButton_Click" Content="Добавить" 
+                    Style="{StaticResource PrimaryButton}"/>
+            <Button Click="DelButton_Click" Content="Удалить" 
+                    Style="{StaticResource DangerButton}"/>
+            <Button Click="BackButton_Click" Content="Назад" 
+                    Style="{StaticResource SecondaryButton}"/>
+        </StackPanel>
+
+        <ListView Grid.Row="1" 
+                  ItemsSource="{Binding Service.InterestGroups}"
+                  MouseDoubleClick="EditInterest_Click"
+                  SelectedItem="{Binding SelectedGroup}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource UserListItem}">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Id: "/>
+                                <TextBlock Text="{Binding Id}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Название: "/>
+                                <TextBlock Text="{Binding Title}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
